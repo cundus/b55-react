@@ -40,7 +40,11 @@ const NAV_ITEMS = [
 const NavItem = () => {
    return NAV_ITEMS.map((item) => {
       return (
-         <NavLink to={item.path} style={{ textDecoration: "none" }}>
+         <NavLink
+            key={item.name}
+            to={item.path}
+            style={{ textDecoration: "none" }}
+         >
             {({ isActive }) => (
                <Box
                   sx={{

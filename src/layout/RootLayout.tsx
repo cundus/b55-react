@@ -1,8 +1,15 @@
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { Box } from "@mui/material";
 import Sidebar from "../components/sidebar";
+import useStore from "../stores/hooks";
 
 const RootLayout = () => {
+   const { isLogin } = useStore();
+
+   if (!isLogin) {
+      return <Navigate to="/auth/login" />;
+   }
+
    return (
       <Box sx={{ height: "100vh", display: "flex" }}>
          {/* Sidebar */}

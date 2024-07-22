@@ -1,10 +1,9 @@
 import { RouteObject } from "react-router-dom";
-import Home from "../pages/Home";
-import About from "../pages/About";
-import RootLayout from "../layout/RootLayout";
-import Register from "../pages/Register";
-import Login from "../pages/Login";
 import AuthLayout from "../layout/AuthLayout";
+import RootLayout from "../layout/RootLayout";
+import Home from "../pages/Home";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 
 const routes: RouteObject[] = [
    {
