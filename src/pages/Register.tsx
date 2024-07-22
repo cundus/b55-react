@@ -10,7 +10,6 @@ const Register = () => {
             alignItems: "center",
             height: "100vh",
             backgroundColor: "#1D1D1D",
-            padding: "20px",
          }}
       >
          <RegisterForm />

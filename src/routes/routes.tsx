@@ -16,14 +16,16 @@ const routes: RouteObject[] = [
             element: <Home />,
          },
          {
-            path: "about",
-            element: <About />,
-            children: [
-               {
-                  path: "company",
-                  element: <h1>About Company</h1>,
-               },
-            ],
+            path: "search",
+            element: <>About</>,
+         },
+         {
+            path: "follows",
+            element: <>About</>,
+         },
+         {
+            path: "profile",
+            element: <>Profile</>,
          },
       ],
    },

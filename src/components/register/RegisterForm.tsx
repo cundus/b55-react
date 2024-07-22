@@ -2,7 +2,11 @@ import { Button, Input, Typography } from "@mui/material";
 import CustomInput from "../common/Input";
 import { Icon } from "@iconify/react";
 
-const RegisterForm = () => {
+interface IRegisterProps {
+   title?: string;
+}
+
+const RegisterForm = ({ title }: IRegisterProps) => {
    return (
       <form
          style={{
