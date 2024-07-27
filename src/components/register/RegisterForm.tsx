@@ -47,6 +47,12 @@ const RegisterForm = ({ title }: IRegisterProps) => {
                      placeholder="Fullname"
                      sx={{ mb: 2 }}
                      {...field}
+                     onChange={field.onChange}
+                     disabled={field.disabled}
+                     value={field.value}
+                     name={field.name}
+                     onBlur={field.onBlur}
+                     ref={field.ref}
                   />
                   {Boolean(fieldState.error) && (
                      <FormHelperText>

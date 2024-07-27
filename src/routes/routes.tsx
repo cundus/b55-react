@@ -4,6 +4,9 @@ import RootLayout from "../layout/RootLayout";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import Detail from "../pages/Detail";
+import TestPage from "../pages/TestPage/TestPage";
+import ProfilePage from "../pages/ProfilePage/ProfilePage";
 
 const routes: RouteObject[] = [
    {
@@ -23,8 +26,16 @@ const routes: RouteObject[] = [
             element: <>About</>,
          },
          {
-            path: "profile",
-            element: <>Profile</>,
+            path: "profile/:user_id",
+            element: <ProfilePage />,
+         },
+         {
+            path: "detail/:id",
+            element: <Detail />,
+         },
+         {
+            path: "test",
+            element: <TestPage />,
          },
       ],
    },

@@ -21,4 +21,11 @@ export interface IProfile {
    bio: string;
 }
 
+type TTest = () => void;
+type TTest2 = string;
+
+interface ITest {
+   test: TTest;
+}
+
 export type TStore = IStoreStates & IStoreActions;

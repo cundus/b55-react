@@ -1,10 +1,11 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { Box } from "@mui/material";
 import Sidebar from "../components/sidebar";
 import useStore from "../stores/hooks";
+import ProfileCard from "../components/ProfileCard/ProfileCard";
 
 const RootLayout = () => {
-   const { isLogin } = useStore();
+   const { isLogin, user } = useStore();
 
    if (!isLogin) {
       return <Navigate to="/auth/login" />;
@@ -22,11 +23,11 @@ const RootLayout = () => {
          >
             <Sidebar />
          </Box>
-         <Box sx={{ flex: 2 }}>
+         <Box sx={{ flex: 2, overflow: "auto" }}>
             <Outlet />
          </Box>
          <Box sx={{ flex: 1.5, borderLeft: "1px solid gray" }}>
-            <Box />
+            <ProfileCard />
          </Box>
       </Box>
    );
