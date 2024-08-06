@@ -1,11 +1,13 @@
 export interface IStoreStates {
    user: IUser;
    isLogin: boolean;
+   posts: any[];
 }
 
 export interface IStoreActions {
    setUser: (user: IUser) => void;
    clearUser: () => void;
+   getPosts: () => Promise<void>;
 }
 
 export interface IUser {

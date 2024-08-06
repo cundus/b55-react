@@ -1,4 +1,7 @@
+import { Avatar, Box, Button, Input, Stack } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
+import PostField from "../components/home/PostField";
+import PostList from "../components/home/PostList";
 
 const dummy = [
    {
@@ -51,20 +54,8 @@ const Home = () => {
    return (
       <div>
          <h1>Home</h1>
-         <Link to="/test">GO TO TEST</Link>
-         <Link to="/profile/cundus">GO TO DUMMY PROFILE</Link>
-         {dummy.map((post) => (
-            <div
-               key={post.id}
-               onClick={() => {
-                  navigate("/detail/" + post.id);
-               }}
-               style={{ cursor: "pointer", margin: "100px 0" }}
-            >
-               <h3>{post.user.username}</h3>
-               <p>{post.content}</p>
-            </div>
-         ))}
+         <PostField />
+         <PostList />
       </div>
    );
 };

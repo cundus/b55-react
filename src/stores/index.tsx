@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import { IUser, TStore } from "../types/store";
+import { api } from "../lib/api";
 
 interface StoreProps {
    children: React.ReactNode;
@@ -22,6 +23,7 @@ export const StoreProvider: React.FC<StoreProps> = ({ children }) => {
       username: "",
    });
    const [isLogin, setIsLogin] = useState(false);
+   const [posts, setPosts] = useState([]);
 
    const setUser = (user: IUser) => {
       setUserState(user);
@@ -34,11 +36,19 @@ export const StoreProvider: React.FC<StoreProps> = ({ children }) => {
          fullName: "",
          username: "",
       });
-
+      localStorage.removeItem("token");
       setIsLogin(false);
    };
 
-   console.log(user, isLogin);
+   const getPosts = async () => {
+      try {
+         const res = await api.get("/posts");
+
+         setPosts(res.data);
+      } catch (error) {
+         console.log(error);
+      }
+   };
 
    return (
       <Store.Provider
@@ -47,6 +57,8 @@ export const StoreProvider: React.FC<StoreProps> = ({ children }) => {
             isLogin,
             setUser,
             clearUser,
+            getPosts,
+            posts,
          }}
       >
          {children}

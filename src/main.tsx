@@ -11,6 +11,8 @@ import "./index.css";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { StoreProvider } from "./stores/index.tsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const theme = createTheme({
    palette: {
@@ -24,6 +26,15 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
          <CssBaseline />
          <StoreProvider>
             <App />
+            <ToastContainer
+               position="bottom-center"
+               autoClose={3000}
+               hideProgressBar={false}
+               newestOnTop={false}
+               closeOnClick
+               rtl={false}
+               theme="colored"
+            />
          </StoreProvider>
       </ThemeProvider>
    </React.StrictMode>

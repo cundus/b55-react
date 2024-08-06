@@ -3,6 +3,8 @@ import { Controller } from "react-hook-form";
 import { IRegisterForm } from "../../types/register";
 import CustomInput from "../common/Input";
 import { useRegisterValidation } from "./hooks/useRegisterValidation";
+import axios from "axios";
+import { api } from "../../lib/api";
 
 interface IRegisterProps {
    title?: string;
@@ -11,16 +13,23 @@ interface IRegisterProps {
 const RegisterForm = ({ title }: IRegisterProps) => {
    const { control, handleSubmit, reset, watch } = useRegisterValidation();
 
-   const onSubmit = (data: IRegisterForm) => {
-      console.log(data);
-      reset();
+   const onSubmit = async (data: IRegisterForm) => {
+      try {
+         console.log(data);
+
+         const response = await api.post("/auth/register", data);
+
+         console.log(response);
+
+         reset();
+      } catch (error) {
+         console.log(error);
+      }
    };
 
    const onError = (errors: any) => {
       console.log(errors);
    };
-
-   console.log(watch());
 
    return (
       <form

@@ -1,27 +1,19 @@
-import { useNavigate } from "react-router-dom";
-import useStore from "../stores/hooks";
+import { Box } from "@mui/material";
+import LoginForm from "../components/login/LoginForm";
 
 const Login = () => {
-   // const navigate = useNavigate();
-
-   const { setUser } = useStore();
-
    return (
-      <div>
-         <h1>Login</h1>
-         <button
-            type="button"
-            onClick={() =>
-               setUser({
-                  username: "admin",
-                  email: "admin",
-                  fullName: "admin",
-               })
-            }
-         >
-            LOGIN
-         </button>
-      </div>
+      <Box
+         sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+            backgroundColor: "#1D1D1D",
+         }}
+      >
+         <LoginForm />
+      </Box>
    );
 };
 
